@@ -11,7 +11,7 @@ public class Kuis extends Konten {
     }
 
     public void tampilkanKonten() {
-        System.out.println("=== Kuis: " + getJudul() + " ===");
+        System.out.println("\n=== Kuis: " + getJudul() + " ===");
         System.out.println("Waktu Pengerjaan: " + waktuPengerjaan + " menit");
         for (int i = 0; i < jumlahPertanyaan; i++) {
             daftarPertanyaan[i].tampilkanPertanyaan();

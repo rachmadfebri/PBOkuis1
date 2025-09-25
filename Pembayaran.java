@@ -37,16 +37,16 @@ public class Pembayaran {
 
     public boolean prosesPembayaran() {
         if (jumlah > 0) {
-            System.out.println("Pembayaran berhasil diproses.");
+            System.out.println("\nPembayaran berhasil diproses.");
             return true;
         } else {
-            System.out.println("Pembayaran gagal. Jumlah tidak valid.");
+            System.out.println("\nPembayaran gagal. Jumlah tidak valid.");
             return false;
         }
     }
 
     public void cetakPembayaran() {
-        System.out.println("====== KWITANSI PEMBAYARAN ======");
+        System.out.println("\n====== KWITANSI PEMBAYARAN ======");
         System.out.println("ID Pembayaran : " + idPembayaran);
         System.out.println("Tanggal       : " + tanggal);
         System.out.println("Jumlah        : Rp " + jumlah);

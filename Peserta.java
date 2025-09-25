@@ -7,6 +7,7 @@ public class Peserta extends Pengguna{
         super(id, nama, email, password);
     }
      public void daftarKursus(Kursus k) {
+        System.out.println();
         System.out.println(getNama() + " mendaftar ke kursus " + k.getNamaKursus());
     }
     public List<Kursus> lihatKursusTerdaftar() {
@@ -19,7 +20,9 @@ public class Peserta extends Pengguna{
     }
     public double ambilKuis(Kuis kuis, int[] jawaban) {
         double skor = kuis.evaluasiJawaban(jawaban);
-        System.out.println(getNama() + " mendapatkan skor: " + skor + "% pada kuis " + kuis.getJudul());
+        System.out.println();
+        System.out.println(getNama() + " mendapatkan skor: " + skor + "% pada kuis " + kuis.getJudul() + ".");
+        System.out.println();
         return skor;
     }
 }

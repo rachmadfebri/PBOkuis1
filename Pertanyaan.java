@@ -21,7 +21,7 @@ public class Pertanyaan {
     }
 
     public void tampilkanPertanyaan() {
-        System.out.println("Pertanyaan" + idPertanyaan + ": " + teks);
+        System.out.println("\nPertanyaan" + idPertanyaan + ": " + teks);
         for (int i = 0; i < jumlahPilihan; i++) {
             System.out.println("   " + (i + 1) + ". " + pilihan[i].getTeksPilihan());
         }

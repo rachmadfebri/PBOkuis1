@@ -37,7 +37,7 @@ public class Pengguna {
     }
     public boolean login(String email, String password) {
         if (this.email.equals(email) && this.password.equals(password)) {
-            System.out.println("login berhasil.");
+            System.out.println("Login berhasil.");
             return true;
         } else {
             System.out.println("login gagal, email atau password salah!");
