@@ -11,9 +11,9 @@ public class Pertanyaan {
         this.jumlahPilihan = 0;
     }
 
-    public void tambahPilihan(PilihanJawaban p) {
+    public void tambahPilihan(PilihanJawaban pilih) {
         if (jumlahPilihan < pilihan.length) {
-            pilihan[jumlahPilihan] = p;
+            pilihan[jumlahPilihan] = pilih;
             jumlahPilihan++;
         } else {
             System.out.println("Pilihan sudah penuh!");
@@ -21,7 +21,7 @@ public class Pertanyaan {
     }
 
     public void tampilkanPertanyaan() {
-        System.out.println("Q" + idPertanyaan + ": " + teks);
+        System.out.println("Pertanyaan" + idPertanyaan + ": " + teks);
         for (int i = 0; i < jumlahPilihan; i++) {
             System.out.println("   " + (i + 1) + ". " + pilihan[i].getTeksPilihan());
         }
