@@ -1,18 +1,29 @@
 public class Main {
     public static void main(String[] args) {
+        System.out.println("====== SISTEM PEMBELAJARAN ONLINE ======\n");
+
         // 1. Buat instruktur
         Instruktur instruktur = new Instruktur(1, "Andi", "andi@mail.com", "Pemrograman", "12345");
-        System.out.println("Instruktur: " + instruktur.getNama() + " ahli di bidang " + instruktur.getKeahlian());
+        System.out.println("Instruktur dibuat:");
+        System.out.println("Nama       : " + instruktur.getNama());
+        System.out.println("Keahlian   : " + instruktur.getKeahlian());
+        System.out.println("----------------------------------------\n");
 
         // 2. Instruktur membuat kursus
         Kursus kursusJava = instruktur.buatKursus("Belajar Java OOP", "Mengenal konsep OOP di Java", 250000);
+        System.out.println("Kursus dibuat oleh instruktur:");
+        System.out.println("Nama Kursus: " + kursusJava.getNamaKursus());
+        System.out.println("Deskripsi  : " + kursusJava.getDeskripsi());
+        System.out.println("Harga      : Rp " + kursusJava.getHarga());
+        System.out.println("----------------------------------------\n");
 
         // 3. Tambahkan konten ke kursus
-        Video video1 = new Video(101, "Pengenalan OOP", "Dasar-dasar OOP", 22, "https://youtu.be/bxOPd_b0rg4?si=bNYpWZQqaWQBmJK-");
-        Artikel artikel1 = new Artikel(201, "Ringkasan OOP", "Artikel ringkas tentang OOP", "OOP punya 4 pilar utama: Encapsulation, Inheritance, Polymorphism, Abstraction.");
+        Video video1 = new Video(101, "Pengenalan OOP", "Dasar-dasar OOP", 22,
+                "https://youtu.be/bxOPd_b0rg4?si=bNYpWZQqaWQBmJK-");
+        Artikel artikel1 = new Artikel(201, "Ringkasan OOP", "Artikel ringkas tentang OOP",
+                "OOP punya 4 pilar utama: Encapsulation, Inheritance, Polymorphism, Abstraction.");
         Kuis kuis1 = new Kuis(301, "Kuis OOP", "Tes pemahaman dasar OOP", 20, 2);
 
-        // Tambah pertanyaan
         Pertanyaan q1 = new Pertanyaan(1, "Apa singkatan dari OOP?", 3);
         q1.tambahPilihan(new PilihanJawaban("Object Oriented Programming", true));
         q1.tambahPilihan(new PilihanJawaban("Order Of Process", false));
@@ -30,27 +41,45 @@ public class Main {
         kursusJava.tambahKonten(artikel1);
         kursusJava.tambahKonten(kuis1);
 
+        System.out.println("Konten ditambahkan ke kursus.");
+        System.out.println("Jumlah konten saat ini: 3");
+        System.out.println("----------------------------------------\n");
+
         // 4. Buat peserta
         Peserta peserta = new Peserta(2, "Budi", "budi@mail.com", "abc123");
+        System.out.println("Peserta dibuat:");
+        System.out.println("Nama  : " + peserta.getNama());
+        System.out.println("Email : " + peserta.getEmail());
+        System.out.println("----------------------------------------\n");
+
         peserta.login("budi@mail.com", "abc123");
 
         // 5. Peserta mendaftar kursus
+        System.out.println("\nPendaftaran Kursus:");
         peserta.daftarKursus(kursusJava);
+        System.out.println("----------------------------------------\n");
 
         // 6. Peserta membayar kursus
+        System.out.println("Pembayaran Kursus:");
         Pembayaran pembayaran = peserta.bayarKursus(kursusJava);
         if (pembayaran.prosesPembayaran()) {
             pembayaran.cetakPembayaran();
         }
+        System.out.println("----------------------------------------\n");
 
-        // 7. Peserta mengerjakan kuis
-        int[] jawabanBudi = {0, 2}; // jawaban index: soal 1 -> pilihan 0 (benar), soal 2 -> pilihan 2 (benar)
-        peserta.ambilKuis(kuis1, jawabanBudi);
-
-        // 8. Tampilkan semua konten kursus
+        // 7. Tampilkan semua konten kursus
+        System.out.println("Daftar Konten Kursus:");
         kursusJava.lihatKonten();
+        System.out.println("----------------------------------------\n");
+
+        // 8. Peserta mengerjakan kuis
+        System.out.println("Peserta mengerjakan kuis:");
+        int[] jawabanBudi = { 0, 2 }; // index jawaban
+        peserta.ambilKuis(kuis1, jawabanBudi);
+        System.out.println("----------------------------------------\n");
 
         // Logout
         peserta.logout();
+        System.out.println("\n====== PROGRAM SELESAI ======");
     }
 }
