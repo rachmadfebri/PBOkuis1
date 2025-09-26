@@ -42,14 +42,14 @@ public class Main {
         if (pembayaran.prosesPembayaran()) {
             pembayaran.cetakPembayaran();
         }
-
+        
+        // 8. Tampilkan semua konten kursus
+        kursusJava.lihatKonten();
+        
         // 7. Peserta mengerjakan kuis
         int[] jawabanBudi = {0, 2}; // jawaban index: soal 1 -> pilihan 0 (benar), soal 2 -> pilihan 2 (benar)
         peserta.ambilKuis(kuis1, jawabanBudi);
-
-        // 8. Tampilkan semua konten kursus
-        kursusJava.lihatKonten();
-
+        
         // Logout
         peserta.logout();
     }
