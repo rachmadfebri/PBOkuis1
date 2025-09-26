@@ -30,11 +30,31 @@ public class Kuis extends Konten {
     public double evaluasiJawaban(int[] jawabanPeserta) {
         int benar = 0;
         for (int i = 0; i < jumlahPertanyaan; i++) {
-            PilihanJawaban pilih = daftarPertanyaan[i].getPilihan()[jawabanPeserta[i]];
-            if (pilih.isBenar()) {
+            Pertanyaan p = daftarPertanyaan[i];
+            PilihanJawaban[] pilihan = p.getPilihan();
+
+            // jawaban peserta
+            PilihanJawaban jawabanUser = pilihan[jawabanPeserta[i]];
+            System.out.println("Pertanyaan " + (i + 1));
+            System.out.println("Jawaban Peserta = " + jawabanUser.getTeksPilihan());
+
+            // cari jawaban benar
+            String jawabanBenar = "";
+            for (PilihanJawaban pj : pilihan) {
+                if (pj != null && pj.isBenar()) {
+                    jawabanBenar = pj.getTeksPilihan();
+                    break;
+                }
+            }
+            System.out.println("Jawaban yang benar adalah = " + jawabanBenar);
+
+            // cek kebenaran
+            if (jawabanUser.isBenar()) {
                 benar++;
             }
+            System.out.println();
         }
         return (double) benar / jumlahPertanyaan * 100;
     }
+
 }
